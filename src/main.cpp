@@ -63,7 +63,7 @@ public:
         }
         printf("\n");
     }
-    
+
     void printFormatted() {
         for (int i = 1; i <= n_node; i++) {
             printf("%d %d\n",ndh[i].getDist(),ndh[i].getNextHop());
@@ -101,7 +101,7 @@ int n_node,n_edge;
 // GLOBAL METHODS
 
 // Inisiasi Routing Table O(N^2)
-void initRoutingTable(RoutingTable* r, const Matrix& adj_matrix){  
+void initRoutingTable(RoutingTable* r, const Matrix& adj_matrix){
     // inisiasi setiap routing table tiap node
     NDH n(0,0);
     for (int i = 1; i <= n_node; i++) {
@@ -114,8 +114,6 @@ void initRoutingTable(RoutingTable* r, const Matrix& adj_matrix){
         }
     }
 }
-
-
 
 
 void updateTable(RoutingTable* r,int node_src, int node_dest) {
@@ -131,11 +129,11 @@ void updateTable(RoutingTable* r,int node_src, int node_dest) {
             r[node_dest].getNDH(i).setValue(dist+cost, node_src);
         }
     }
-   
+
 }
 
 int main() {
-    
+
     // TODO : scan #node and #edge
     scanf("%d %d",&n_node,&n_edge);
 
@@ -160,7 +158,7 @@ int main() {
 
 
     initRoutingTable(rt,adj_matrix);
-    
+
 
     int n_scenario;
     // TODO : scan #scenario
@@ -170,7 +168,7 @@ int main() {
     for (int i=0; i < n_scenario; ++i) {
         scanf("%d %d",&a,&b);
         updateTable(rt,a,b);
-        
+
     }
 
     // TODO : print result as formatted

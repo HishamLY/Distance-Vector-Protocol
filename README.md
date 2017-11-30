@@ -20,11 +20,11 @@ Pada saat pengiriman pesan, program akan melakukan *update* informasi pada *rout
 
 ## D. Pembagian tugas.
 
-1. 13515030 :
+1. 13515030 : Membuat kelas NDH, implementasi prosedur updateTable, membuat README.md
 
-2. 13515069 :
+2. 13515069 : Membuat kelas Matrix, implementasi prosedur initRoutingTable, membuat READM
 
-3. 13515120 :
+3. 13515120 : Membuat kelas Routing Table, implementasi prosedur updateTable dan initRoutingTable, membuat READM
 
 ## E. Pertanyaan
 #### 1. Apakah perbedaan dari *routing protocol distance-vector* dan *link state*? Manakah yang lebih baik untuk digunakan?
@@ -50,4 +50,9 @@ Dan untuk *node* R4 adalah sebagai berikut :
 Algoritma *routing protocol* yang lebih baik untuk digunakan tergantung dari kebutuhan dan scope jaringan yang tersedia, misalnya untuk jaringan dengan jumlah node yang besar dan mempunyai kecepatan yang cepat menggunakan *link state protocol* lebih baik daripada *distance vector protocol*, sedangkan jika jaringan dengan node yang kecil dan kecepatan tetap maka *distance vector protocol* lebih baik.Tetapi secara keseluruhan **Link State Protocol** lebih baik untuk digunakan. Penjelasan ada di bagian selanjutnya.
 
 #### 2. Pada implementasinya saat ini manakah yang lebih banyak digunakan, *distance-vector* atau *link state*? Kenapa?
-*Link state protocol* lebih banyak digunakan pada saat ini karena lebih cepat dalam menghasilkan *path* yang optimal dan lebih efektif dibandingkan dengan *distance-vector protocol* yang rawan terhadap permasalahan *count-to-infinity problem*, di mana *packet* mengalami *routing loop* (*packet* berputar antara router-router antara dan tidak dapat mencapai tujuannya)
+*Link state protocol* lebih banyak digunakan pada saat ini karena lebih cepat dalam menghasilkan *path* yang optimal dan lebih efektif dibandingkan dengan *distance-vector protocol* yang rawan terhadap permasalahan *count-to-infinity problem*, di mana *packet* mengalami *routing loop* (*packet* berputar antara router-router antara dan tidak dapat mencapai tujuannya).
+
+## Referensi
+
+- http://www.cs.bu.edu/fac/byers/courses/791/F99/scribe_notes/cs791-notes-990923.html
+- http://packetlife.net/blog/2008/oct/2/distance-vector-versus-link-state/
