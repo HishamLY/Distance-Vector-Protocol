@@ -8,7 +8,17 @@
 
 ## A. Petunjuk penggunaan program.
 
-Untuk menjalankan program **Distance Vector Simulation** ini cukup ketikkan command `make` pada terminal atau konsol.
+Untuk melakukan compile program **Distance Vector Simulation** ini cukup ketikkan command
+```
+$ make
+```
+pada terminal atau konsol.
+
+Selanjutnya untuk menjalankan program, cukup mengetikkan command
+```
+$ make run
+```
+input yang digunakan berasal dari file **tes.in** di dalam folder *Data* dan hasil ditampilkan di terminal atau konsol.
 
 ## B. Bagaimana anda mensimulasikan sebuah node dalam program anda?
 Mula-mula, setiap *node* akan memiliki atribut berupa *distance* dan *nextHop* yang diinisialisasi dengan nilai -1. Kemudian informasi dari tiap *node* yang behubungan disimpan dalam sebuah *adjacency matrix* yang diinisialisasi saat awal program dijalankan. Kemudian *node* yang berhubungan akan memiliki *cell* yang bernilai 1. Jika tidak, maka akan bernilai 0.
