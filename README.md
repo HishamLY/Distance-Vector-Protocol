@@ -4,6 +4,7 @@
 ##### 13515030 - Rizki Elzandy Barik
 ##### 13515069 - Hisham Lazuardi Yusuf
 ##### 13515120 - Azis Adi Kuncoro
+##
 
 ## A. Petunjuk penggunaan program.
 
@@ -27,8 +28,26 @@ Pada saat pengiriman pesan, program akan melakukan *update* informasi pada *rout
 
 ## E. Pertanyaan
 #### 1. Apakah perbedaan dari *routing protocol distance-vector* dan *link state*? Manakah yang lebih baik untuk digunakan?
-Pada *distance-vector protocol* suatu *node* hanya mengetahui informasi mengenai *node* tetangga yang berhubungan langsung dan hanya menyimpan informasi mengenai *router nextHop* untuk menuju suatu *node*. Sedangkan, pada *link-state routing protocol* suatu *node* harus mengetahui rute yang dapat digunakan untuk mencapai semua *node* di dalam suatu jaringan dan menyimpan informasi mengenai semua *node* di dalam jaringan dalam bentuk graf. Sehingga, informasi pada *node* lain dimiliki oleh *node* tersebut. Penentuan jarak optimal dari *distance-vector protocol* menggunakan algoritma **Bellmann-Ford**, sedangkan *link-state protocol* menggunakan algoritma **Dijkstra**.
-Algoritma *routing protocol* yang lebih baik untuk digunakan tergantung dari kebutuhan dan scope jaringan yang tersedia, tetapi secara keseluruhan **Link State Protocol**  lebih baik untuk digunakan. Penjelasan ada di bagian selanjutnya.
+Pada *distance-vector protocol* suatu *node* hanya dapat mengetahui informasi mengenai *node* tetangga yang berhubungan langsung dan hanya menyimpan informasi mengenai jarak dan *router nextHop* untuk menuju ke suatu *node* di dalam suatu *Routing Table*. Sedangkan, pada *link-state routing protocol* suatu *node* dapat mengetahui rute yang dapat digunakan untuk mencapai semua *node* di dalam suatu jaringan serta informasi mengenai *node* lainnya dengan proses *Reliable Flooding* dan menyimpan informasi mengenai semua *node* di dalam jaringan dalam bentuk graf. Penentuan jarak optimal dari suatu *node* ke *node* lainnya pada *distance-vector protocol* menggunakan algoritma **Bellmann-Ford**, sedangkan pada *link-state protocol* menggunakan algoritma **Dijkstra**.
+
+Misal ada suatu topologi jaringan seperti gambar dibawah ini :
+
+![Topologi Jaringan](img/topologi-jaringan.png)
+
+Jika menggunakan **Distance Vector Protocol** maka informasi mengenai rute terpendek yang diketahui oleh *node* R1 terhadap *node* lain pada jaringan di atas adalah sebagai berikut :
+
+![Distance Vector Protocol](img/distancevector.png)
+
+Sedangkan jika menggunakan **Link State Protocol** maka rute terpendek yang diketahui oleh *node* R1 adalah :
+
+![Link State R1](img/linkstate-2.png)
+
+Dan untuk *node* R4 adalah sebagai berikut :
+
+![Link State R4](img/linkstate-1.png)
+
+
+Algoritma *routing protocol* yang lebih baik untuk digunakan tergantung dari kebutuhan dan scope jaringan yang tersedia, misalnya untuk jaringan dengan jumlah node yang besar dan mempunyai kecepatan yang cepat menggunakan *link state protocol* lebih baik daripada *distance vector protocol*, sedangkan jika jaringan dengan node yang kecil dan kecepatan tetap maka *distance vector protocol* lebih baik.Tetapi secara keseluruhan **Link State Protocol** lebih baik untuk digunakan. Penjelasan ada di bagian selanjutnya.
 
 #### 2. Pada implementasinya saat ini manakah yang lebih banyak digunakan, *distance-vector* atau *link state*? Kenapa?
-*Link state protocol* lebih banyak digunakan karena lebih cepat dalam menghasilkan *path* optimal dan lebih efektif dibanding *distance-vector protocol* yang rawan terhadap *count-to-infinity problem*, di mana *packet* mengalami *routing loop* (*packet* berputar antara router-router antara dan tidak mencapai tujuannya)
+*Link state protocol* lebih banyak digunakan pada saat ini karena lebih cepat dalam menghasilkan *path* yang optimal dan lebih efektif dibandingkan dengan *distance-vector protocol* yang rawan terhadap permasalahan *count-to-infinity problem*, di mana *packet* mengalami *routing loop* (*packet* berputar antara router-router antara dan tidak dapat mencapai tujuannya)
